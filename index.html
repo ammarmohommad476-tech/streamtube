@@ -85,6 +85,9 @@
         <a class="side-link" href="#/upload" data-route="upload">
           <svg viewBox="0 0 24 24"><path d="M12 17V5M7 10l5-5 5 5" /><path d="M4 19h16" /></svg><span>Upload</span>
         </a>
+        <a class="side-link" href="#/settings" data-route="settings">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2" /></svg><span>Settings</span>
+        </a>
       </nav>
 
       <div class="sidebar__foot">
@@ -140,9 +143,16 @@
   <!-- ============ TOASTS ============ -->
   <div class="toasts" id="toasts"></div>
 
+  <!-- Load order matters:
+       data + store + ui  → app (router, shell, watch/shorts/home)
+       → pages + messages (the remaining views)
+       → streamtube (boot: binds views to routes, first render) -->
   <script src="js/data.js"></script>
   <script src="js/store.js"></script>
   <script src="js/ui.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/messages.js"></script>
+  <script src="js/streamtube.js"></script>
 </body>
 </html>
